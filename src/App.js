@@ -7,10 +7,10 @@ const handleChange = (e) => {
 e.preventDefault();
 const {value} = e.target
 setUrl(value)
-console.log(' searching..',url)
+console.log(' searching..')
 }
 
-const deb = (handle, delay) => {
+const debounce = (handle, delay) => {
   let timer 
   return (...args ) =>{
 clearTimeout(timer)
@@ -25,8 +25,8 @@ timer = setTimeout(() => handle(...args), delay)
       <h2>Start editing to see some magic happen!</h2>
     </div>
     
-      <input type='search' placeholder = 'search' onChange={deb(handleChange,500)}/>
-     
+      <input type='search' placeholder = 'search' onChange={debounce(handleChange,500)}/>
+     <div>{url}</div>
     </>
   );
 }
