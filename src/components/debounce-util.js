@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function DebounceUtil() {
+export default function DebounceUtil({...props}) {
     const [url, setUrl] = React.useState('')
     const handleChange = (e) => {
         e.preventDefault();
@@ -18,9 +18,9 @@ export default function DebounceUtil() {
     }
 
     return (
-        <>
+        <div {...props }>
             <input type='search' placeholder='search' onChange={debounce(handleChange, 500)} />
-            <div>{'You searched ' + url}</div>
-        </>
+            <div>{'You searched this ' + url}</div>
+        </div>
     );
 }
